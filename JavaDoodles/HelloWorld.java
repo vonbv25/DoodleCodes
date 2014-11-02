@@ -1,0 +1,15 @@
+
+public class HelloWorld {
+
+	public static void main(String[] args) {
+	
+		int b = Integer.parseInt("F",16);
+		System.out.println(b);
+		int c = 60;
+		int _c = c>>>3;
+		System.out.println(Integer.toBinaryString(c));
+		System.out.println(Integer.toBinaryString(_c));
+		System.out.println(_c);
+	}
+
+}

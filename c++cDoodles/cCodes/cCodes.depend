@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1414335251 source:/home/von/Documents/Doodle Codes/c++cDoodles/cCodes/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

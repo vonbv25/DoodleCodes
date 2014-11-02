@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1404031222 source:/home/von/random_codes/Samples/main.cpp
+	<iostream>
+	<string.h>
+

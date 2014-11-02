@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+
+string reverse(string str) {
+
+return str;
+}
+
+
+int main() {
+	
+	string = "hahaha!";
+	printf(string);
+
+	return 0;
+}
