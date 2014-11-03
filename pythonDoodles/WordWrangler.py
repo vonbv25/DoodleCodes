@@ -51,8 +51,24 @@ def merge(list1, list2):
     are in either list1 and list2.
 
     This function can be iterative.
-    """   
-    return []
+    """
+    result = []
+    idx = 0
+    idx2 = 0
+    while idx<len(list1) and idx2<len(list2):
+        
+        if list1[idx]>=list2[idx2]:
+            result.append(list2[idx2])
+            idx2+=1
+        else:
+            result.append(list1[idx])
+            idx+=1            
+     
+    if len(list1)>0:
+        result.extend(list1[idx:])
+    if len(list2)>0:
+        result.extend(list2[idx2:]) 
+    return result
                 
 def merge_sort(list1):
     """
@@ -62,7 +78,16 @@ def merge_sort(list1):
 
     This function should be recursive.
     """
-    return []
+    result = []
+    if len(list1) <= 1:
+        return list1
+    else:
+        midpoint = len(list1)/2 
+        left = merge_sort(list1[:midpoint])
+        right = merge_sort(list1[midpoint:])
+        result = merge(left,right)
+
+    return result
 
 # Function to generate all strings for the word wrangler game
 
@@ -76,17 +101,20 @@ def gen_all_strings(word):
 
     This function should be recursive.
     """
+    strings = []
     if len(word)==0:
         return [""]   
     else:
         first = word[0]
         rest = word[1:]
         rest_strings = list(gen_all_strings(rest))
-        answer = rest_strings
-        for idx in range(0,len(rest_strings)+1):
-            answer.append(rest_strings[:idx] + first + rest_strings[idx:])
-        return answer
-
+        for string in rest_strings:
+            strings.append(string)
+            for index in range(0,len(string)+1):
+                new_word = string[:index] + first + string[index:]
+                strings.append(new_word)
+                
+    return strings
 # Function to load words from a file
 
 def load_words(filename):
@@ -95,7 +123,10 @@ def load_words(filename):
 
     Returns a list of strings.
     """
-    return []
+    url = codeskulptor.file2url(filename)
+    netfile = urllib2.urlopen(url)    
+    data = netfile.read()
+    return data
 
 def run():
     """
@@ -108,7 +139,7 @@ def run():
     provided.run_game(wrangler)
 
 # Uncomment when you are ready to try the game
-# run()
+run()
 
     
     
